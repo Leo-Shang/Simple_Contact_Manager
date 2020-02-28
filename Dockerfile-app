@@ -1,0 +1,10 @@
+FROM node:latest
+WORKDIR /code
+COPY wait.sh /wait.sh
+RUN chmod +x /wait.sh
+COPY /package.json /package.json
+RUN cd / && npm install -g
+RUN cd / && rm -rf /node_modules/node-sass && npm install node-sass # work around https://github.com/sass/node-sass/issues/1579
+ADD ./ /code
+CMD /wait.sh mongo 27017  \
+  && node ./bin/www

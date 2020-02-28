@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+    each people in list_contact
+      li #{people.first_name} #{people.family_name}
+      ul
+        li email:  #{people.email}
+        li Phone number:  #{people.phone}
+        li Notes:  #{people.note}
+        a(href='/contact/' + people.id + '/update') #{"Edit"}
+
+    else
+      li There are no contacts in database.

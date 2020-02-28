@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-devel
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./:/code:ro
+  mongo:
+    image: "mongo:latest"
+    restart: always

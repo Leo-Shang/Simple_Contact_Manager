@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#title.form-control(type='text', placeholder='First name' name='first_name' required='true' )
+    div.form-group
+      label(for='family_name') Last Name:
+      input#title.form-control(type='text', placeholder='Last name' name='family_name' required='true')
+    div.form-group
+      label(for='email') Email:
+      input#title.form-control(type='text', placeholder='Email' name='email' required='true')
+    div.form-group
+      label(for='phone') Phone number:
+      input#title.form-control(type='text', placeholder='Phone number' name='phone' required='true')
+    div.form-group
+      label(for='note') Notes:
+      input#title.form-control(type='text', placeholder='' name='note')
+
+    button.btn.btn-primary(type='submit') Submit    
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

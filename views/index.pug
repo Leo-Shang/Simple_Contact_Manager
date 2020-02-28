@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em My Simple Contact Manager].
+
+  h1 Content:
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The contact manager has the following record counts:
+
+    ul
+      li #[strong Contact:] !{data.contact_count}
